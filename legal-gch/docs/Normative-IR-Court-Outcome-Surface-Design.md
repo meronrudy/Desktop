@@ -32,13 +32,18 @@ The Normative IR represents legal norms as a structured, typed intermediate repr
       "scope": {
         "defined_terms": ["string (e.g., Security Incident)"]
       },
-      "evidence": [{"doc": "string", "span": "[number, number]"}]
+      "evidence": [{"doc": "string", "span": "[number, number]"}],
+      "conf_info": {
+        "confidentiality_object": "string (what is confidential)",
+        "disclosure_triggers": ["enum {AWARENESS, DISCOVERY, OCCURRENCE}"]
+      } | null,
+      "clauses": ["enum {Confidentiality, Indemnity, Limitation, Future}"]
     }
   ],
   "definitions": {
     "string": "string (definition of terms)"
   },
-  "jurisdiction": "string (e.g., NY)"
+  "jurisdiction": "enum {GENERAL, GDPR_EU, CONTRACT_NY}"
 }
 ```
 
@@ -61,6 +66,7 @@ The Court Outcome Surface defines the minimal set of judicial findings that must
 - **Breach**: Boolean indicating if the obligation was breached (e.g., deadline missed).
 - **Liability**: Boolean indicating if liability attaches (e.g., due to breach).
 - **Remedies**: Enum {DAMAGES, INJUNCTIVE_RELIEF, SPECIFIC_PERFORMANCE, NONE} indicating available remedies.
+- **RemedyAmount**: Natural number indicating the effective remedy amount, considering any caps or limitations.
 - **Defenses**: Enum {EXCEPTION_APPLIES, DEFENSE_PRESERVED, DEFENSE_WAIVED} indicating if defenses are available.
 
 ### Examples

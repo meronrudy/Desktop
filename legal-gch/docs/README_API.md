@@ -10,7 +10,8 @@ A REST API for processing legal text through the neural inference pipeline, prov
 - Retrieve court outcomes
 - Retrieve realized text
 - Retrieve certificates
-- Authentication via API key
+- Multi-tenant support with tenant management
+- Authentication via JWT token
 - Input validation
 - OpenAPI documentation
 
@@ -18,6 +19,10 @@ A REST API for processing legal text through the neural inference pipeline, prov
 
 ### Health Check
 - **GET** `/` - Check API health
+
+### Tenant Management
+- **POST** `/tenants` - Create a new tenant (admin only)
+- **GET** `/tenants` - List all active tenants
 
 ### Authentication
 - **POST** `/auth/register` - Register a new user account
@@ -45,8 +50,9 @@ The API uses JWT (JSON Web Token) based authentication. You must register a user
 
 ### User Registration
 - **POST** `/auth/register`
-  - Request: `{"username": "string", "email": "string", "password": "string", "role": "user"}`
+  - Request: `{"username": "string", "email": "string", "password": "string", "role": "user", "tenant_id": null}`
   - Response: User details
+  - Notes: tenant_id is optional; if not provided, user is assigned to the default tenant. Only one admin user can exist initially.
 
 ### User Login
 - **POST** `/auth/login`
@@ -71,7 +77,7 @@ pip install -r requirements_api.txt -r neural_components/requirements.txt
 2. Set environment variables:
 ```bash
 cp .env.example .env
-# Edit .env with your API key
+# Edit .env with database and other configurations
 ```
 
 3. Run the API:
