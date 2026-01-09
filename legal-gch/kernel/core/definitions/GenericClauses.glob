@@ -1,0 +1,218 @@
+DIGEST fa00174e304437522aeeb5dd76245553
+Fkernel.core.definitions.GenericClauses
+R80:97 Coq.Strings.String <> <> lib
+R115:140 kernel.core.basic.Scenario <> <> lib
+ind 173:181 <> trig_type
+constr 190:198 <> AWARENESS
+constr 204:212 <> DISCOVERY
+constr 218:227 <> OCCURRENCE
+def 271:277 <> trig_eq
+R288:296 kernel.core.definitions.GenericClauses <> trig_type ind
+binder 280:281 <> t1:3
+binder 283:284 <> t2:4
+R301:304 Coq.Init.Datatypes <> bool ind
+R321:322 kernel.core.definitions.GenericClauses <> t2:4 var
+R317:318 kernel.core.definitions.GenericClauses <> t1:3 var
+R333:341 kernel.core.definitions.GenericClauses <> AWARENESS constr
+R344:352 kernel.core.definitions.GenericClauses <> AWARENESS constr
+R357:360 Coq.Init.Datatypes <> true constr
+R366:374 kernel.core.definitions.GenericClauses <> DISCOVERY constr
+R377:385 kernel.core.definitions.GenericClauses <> DISCOVERY constr
+R390:393 Coq.Init.Datatypes <> true constr
+R399:408 kernel.core.definitions.GenericClauses <> OCCURRENCE constr
+R411:420 kernel.core.definitions.GenericClauses <> OCCURRENCE constr
+R425:428 Coq.Init.Datatypes <> true constr
+R442:446 Coq.Init.Datatypes <> false constr
+ind 490:506 <> jurisdiction_type
+constr 515:521 <> GENERAL
+constr 527:533 <> GDPR_EU
+constr 539:549 <> CONTRACT_NY
+constr 611:622 <> mk_conf_info
+rec 587:606 <> confidentiality_info
+proj 628:649 <> confidentiality_object
+proj 691:709 <> disclosure_triggers
+R653:658 Coq.Strings.String <> string ind
+R713:716 Coq.Init.Datatypes <> list ind
+R718:726 kernel.core.definitions.GenericClauses <> trig_type ind
+constr 814:824 <> mk_ind_info
+rec 796:809 <> indemnity_info
+proj 830:846 <> indemnity_trigger
+proj 894:911 <> payment_obligation
+R850:855 Coq.Strings.String <> string ind
+R915:917 Coq.Init.Datatypes <> nat ind
+constr 993:1003 <> mk_lim_info
+rec 974:988 <> limitation_info
+proj 1009:1022 <> limitation_cap
+R1026:1028 Coq.Init.Datatypes <> nat ind
+constr 1117:1130 <> mk_jur_profile
+rec 1093:1112 <> jurisdiction_profile
+proj 1136:1157 <> confidentiality_strict
+proj 1207:1227 <> limitation_reasonable
+R1161:1164 Coq.Init.Datatypes <> bool ind
+R1231:1234 Coq.Init.Datatypes <> bool ind
+def 1320:1343 <> get_jurisdiction_profile
+R1350:1366 kernel.core.definitions.GenericClauses <> jurisdiction_type ind
+binder 1346:1346 <> j:20
+R1371:1390 kernel.core.definitions.GenericClauses <> jurisdiction_profile rec
+R1403:1403 kernel.core.definitions.GenericClauses <> j:20 var
+R1414:1420 kernel.core.definitions.GenericClauses <> GENERAL constr
+R1425:1438 kernel.core.definitions.GenericClauses <> mk_jur_profile constr
+R1440:1444 Coq.Init.Datatypes <> false constr
+R1446:1450 Coq.Init.Datatypes <> false constr
+R1456:1462 kernel.core.definitions.GenericClauses <> GDPR_EU constr
+R1467:1480 kernel.core.definitions.GenericClauses <> mk_jur_profile constr
+R1482:1485 Coq.Init.Datatypes <> true constr
+R1487:1491 Coq.Init.Datatypes <> false constr
+R1529:1539 kernel.core.definitions.GenericClauses <> CONTRACT_NY constr
+R1544:1557 kernel.core.definitions.GenericClauses <> mk_jur_profile constr
+R1559:1563 Coq.Init.Datatypes <> false constr
+R1565:1568 Coq.Init.Datatypes <> true constr
+R1623:1635 Coq.Arith.Min <> <> lib
+R1653:1665 Coq.Bool.Bool <> <> lib
+R1683:1696 Coq.Lists.List <> <> lib
+ind 1746:1756 <> clause_kind
+constr 1763:1777 <> Confidentiality
+constr 1832:1840 <> Indemnity
+constr 1876:1885 <> Limitation
+constr 1922:1927 <> Future
+R1790:1793 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1781:1789 kernel.core.definitions.GenericClauses <> trig_type ind
+R1814:1817 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1794:1813 kernel.core.definitions.GenericClauses <> confidentiality_info rec
+R1818:1828 kernel.core.definitions.GenericClauses <> clause_kind:22 ind
+R1858:1861 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1844:1857 kernel.core.definitions.GenericClauses <> indemnity_info rec
+R1862:1872 kernel.core.definitions.GenericClauses <> clause_kind:22 ind
+R1904:1907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1889:1903 kernel.core.definitions.GenericClauses <> limitation_info rec
+R1908:1918 kernel.core.definitions.GenericClauses <> clause_kind:22 ind
+R1935:1938 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1931:1934 Coq.Init.Datatypes <> unit ind
+R1939:1949 kernel.core.definitions.GenericClauses <> clause_kind:22 ind
+rec 2029:2046 <> ClauseContribution
+proj 2055:2068 <> breach_contrib
+proj 2080:2097 <> obligation_contrib
+proj 2109:2122 <> amount_contrib
+proj 2133:2148 <> modifier_contrib
+R2072:2075 Coq.Init.Datatypes <> bool ind
+R2101:2104 Coq.Init.Datatypes <> bool ind
+R2126:2128 Coq.Init.Datatypes <> nat ind
+R2155:2158 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2152:2154 Coq.Init.Datatypes <> nat ind
+R2159:2161 Coq.Init.Datatypes <> nat ind
+def 2204:2216 <> empty_contrib
+R2220:2237 kernel.core.definitions.GenericClauses <> ClauseContribution rec
+R2247:2260 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2247:2260 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2274:2291 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R2305:2318 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R2328:2343 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R2265:2269 Coq.Init.Datatypes <> false constr
+R2296:2300 Coq.Init.Datatypes <> false constr
+binder 2352:2352 <> x:29
+R2357:2357 kernel.core.definitions.GenericClauses <> x:29 var
+def 2402:2414 <> merge_contrib
+R2425:2442 kernel.core.definitions.GenericClauses <> ClauseContribution rec
+binder 2417:2418 <> c1:30
+binder 2420:2421 <> c2:31
+R2447:2464 kernel.core.definitions.GenericClauses <> ClauseContribution rec
+R2474:2487 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2474:2487 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2539:2556 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R2616:2629 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R2679:2694 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R2492:2494 Coq.Init.Datatypes <> orb def
+R2520:2533 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2516:2517 kernel.core.definitions.GenericClauses <> c2:31 var
+R2500:2513 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R2496:2497 kernel.core.definitions.GenericClauses <> c1:30 var
+R2561:2563 Coq.Init.Datatypes <> orb def
+R2593:2610 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R2589:2590 kernel.core.definitions.GenericClauses <> c2:31 var
+R2569:2586 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R2565:2566 kernel.core.definitions.GenericClauses <> c1:30 var
+R2653:2655 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R2638:2651 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R2634:2635 kernel.core.definitions.GenericClauses <> c1:30 var
+R2660:2673 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R2656:2657 kernel.core.definitions.GenericClauses <> c2:31 var
+binder 2703:2703 <> x:32
+R2712:2727 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R2708:2709 kernel.core.definitions.GenericClauses <> c1:30 var
+R2735:2750 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R2731:2732 kernel.core.definitions.GenericClauses <> c2:31 var
+R2753:2753 kernel.core.definitions.GenericClauses <> x:32 var
+def 2804:2818 <> evaluate_clause
+R2826:2836 kernel.core.definitions.GenericClauses <> clause_kind ind
+binder 2821:2822 <> ck:33
+R2846:2862 kernel.core.definitions.GenericClauses <> jurisdiction_type ind
+binder 2840:2842 <> jur:34
+R2870:2877 kernel.core.basic.Scenario <> scenario rec
+binder 2866:2866 <> s:35
+R2882:2899 kernel.core.definitions.GenericClauses <> ClauseContribution rec
+R2912:2913 kernel.core.definitions.GenericClauses <> ck:33 var
+R2924:2938 kernel.core.definitions.GenericClauses <> Confidentiality constr
+R2982:2996 kernel.core.basic.Scenario <> disclosure_time proj
+R2979:2979 kernel.core.definitions.GenericClauses <> s:35 var
+R3026:3029 Coq.Init.Datatypes <> Some constr
+R3037:3040 Coq.Init.Datatypes <> negb def
+R3043:3049 Coq.Lists.List <> existsb def
+R3083:3101 kernel.core.definitions.GenericClauses <> disclosure_triggers proj
+binder 3056:3056 <> t:37
+R3061:3067 kernel.core.definitions.GenericClauses <> trig_eq def
+R3069:3069 kernel.core.definitions.GenericClauses <> t:37 var
+R3127:3130 Coq.Init.Datatypes <> None constr
+R3135:3139 Coq.Init.Datatypes <> false constr
+binder 2963:2968 <> breach:38
+R3177:3190 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3177:3190 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3203:3220 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R3232:3245 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R3253:3268 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R3195:3200 kernel.core.definitions.GenericClauses <> breach:38 var
+R3225:3229 Coq.Init.Datatypes <> false constr
+binder 3277:3277 <> x:39
+R3282:3282 kernel.core.definitions.GenericClauses <> x:39 var
+R3291:3299 kernel.core.definitions.GenericClauses <> Indemnity constr
+R3333:3352 kernel.core.basic.Scenario <> breach_by_other_time proj
+R3330:3330 kernel.core.definitions.GenericClauses <> s:35 var
+R3378:3381 Coq.Init.Datatypes <> Some constr
+R3388:3391 Coq.Init.Datatypes <> true constr
+R3411:3414 Coq.Init.Datatypes <> None constr
+R3419:3423 Coq.Init.Datatypes <> false constr
+binder 3318:3319 <> ob:40
+R3457:3470 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3457:3470 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3482:3499 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R3508:3521 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R3552:3567 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R3475:3479 Coq.Init.Datatypes <> false constr
+R3504:3505 kernel.core.definitions.GenericClauses <> ob:40 var
+R3531:3548 kernel.core.definitions.GenericClauses <> payment_obligation proj
+binder 3576:3576 <> x:41
+R3581:3581 kernel.core.definitions.GenericClauses <> x:41 var
+R3590:3599 kernel.core.definitions.GenericClauses <> Limitation constr
+R3644:3646 Coq.Init.Datatypes <> nat ind
+binder 3634:3640 <> claimed:42
+R3690:3713 kernel.core.definitions.GenericClauses <> get_jurisdiction_profile def
+R3715:3717 kernel.core.definitions.GenericClauses <> jur:34 var
+binder 3679:3685 <> profile:43
+R3758:3778 kernel.core.definitions.GenericClauses <> limitation_reasonable proj
+R3749:3755 kernel.core.definitions.GenericClauses <> profile:43 var
+R3900:3902 Coq.Arith.Min <> min syndef
+R3904:3910 kernel.core.definitions.GenericClauses <> claimed:42 var
+R3917:3930 kernel.core.definitions.GenericClauses <> limitation_cap proj
+R3812:3814 Coq.Arith.Min <> min syndef
+R3816:3822 kernel.core.definitions.GenericClauses <> claimed:42 var
+R3829:3842 kernel.core.definitions.GenericClauses <> limitation_cap proj
+binder 3618:3625 <> mod_func:44
+R3945:3958 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3945:3958 kernel.core.definitions.GenericClauses <> breach_contrib proj
+R3970:3987 kernel.core.definitions.GenericClauses <> obligation_contrib proj
+R3999:4012 kernel.core.definitions.GenericClauses <> amount_contrib proj
+R4020:4035 kernel.core.definitions.GenericClauses <> modifier_contrib proj
+R3963:3967 Coq.Init.Datatypes <> false constr
+R3992:3996 Coq.Init.Datatypes <> false constr
+R4040:4047 kernel.core.definitions.GenericClauses <> mod_func:44 var
+R4056:4061 kernel.core.definitions.GenericClauses <> Future constr
+R4068:4080 kernel.core.definitions.GenericClauses <> empty_contrib def

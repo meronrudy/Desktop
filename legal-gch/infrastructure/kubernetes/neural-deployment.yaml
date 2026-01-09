@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neural-service
+  labels:
+    app: neural-service
+spec:
+  replicas: 3  # Horizontal scaling
+  selector:
+    matchLabels:
+      app: neural-service
+  template:
+    metadata:
+      labels:
+        app: neural-service
+    spec:
+      containers:
+      - name: neural
+        image: your-registry/neural-service:latest  # Replace with actual image
+        ports:
+        - containerPort: 5000  # Assuming neural service runs on 5000
+        env:
+        - name: LOGSTASH_HOST
+          value: "logstash"
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: api-key
+        - name: SECRET_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: secret-token
+        volumeMounts:
+        - name: neural-data
+          mountPath: /app
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+      volumes:
+      - name: neural-data
+        configMap:
+          name: neural-config

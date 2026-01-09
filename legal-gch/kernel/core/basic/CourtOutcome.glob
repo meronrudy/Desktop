@@ -1,0 +1,26 @@
+DIGEST 69aa51b8e7212f060131733b930e2ab3
+Fkernel.core.basic.CourtOutcome
+R77:89 Coq.Bool.Bool <> <> lib
+ind 123:130 <> remedies
+constr 139:145 <> DAMAGES
+constr 151:167 <> INJUNCTIVE_RELIEF
+constr 173:192 <> SPECIFIC_PERFORMANCE
+constr 198:201 <> NONE
+ind 235:242 <> defenses
+constr 251:267 <> EXCEPTION_APPLIES
+constr 273:289 <> DEFENSE_PRESERVED
+constr 295:308 <> DEFENSE_WAIVED
+constr 351:360 <> mk_outcome
+rec 340:346 <> outcome
+proj 366:382 <> obligation_exists
+proj 394:399 <> breach
+proj 411:419 <> liability
+proj 431:436 <> remedy
+proj 452:464 <> remedy_amount
+proj 524:530 <> defense
+R386:389 Coq.Init.Datatypes <> bool ind
+R403:406 Coq.Init.Datatypes <> bool ind
+R423:426 Coq.Init.Datatypes <> bool ind
+R440:447 kernel.core.basic.CourtOutcome <> remedies ind
+R468:470 Coq.Init.Datatypes <> nat ind
+R534:541 kernel.core.basic.CourtOutcome <> defenses ind

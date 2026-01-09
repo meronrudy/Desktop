@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: neural-config
+data:
+  # Add any config files or data needed for neural service

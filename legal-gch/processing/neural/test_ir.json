@@ -1,0 +1,62 @@
+{
+  "jurisdiction": "GENERAL",
+  "atoms": [
+    {
+      "id": "conf1",
+      "actor": "partyA",
+      "modality": "MUST_NOT",
+      "action": "disclose",
+      "object": "trade_secrets",
+      "recipient": "partyB",
+      "trigger": "OCCURRENCE",
+      "deadline": {"DURATION": 0},
+      "exceptions": [],
+      "scope_defined_terms": [],
+      "evidence_list": [],
+      "conf_info": {
+        "confidentiality_object": "trade_secrets",
+        "disclosure_triggers": ["OCCURRENCE"]
+      },
+      "ind_info": null,
+      "lim_info": null
+    },
+    {
+      "id": "ind1",
+      "actor": "partyA",
+      "modality": "MUST",
+      "action": "pay",
+      "object": "damages",
+      "recipient": "partyB",
+      "trigger": "OCCURRENCE",
+      "deadline": {"DURATION": 30},
+      "exceptions": [],
+      "scope_defined_terms": [],
+      "evidence_list": [],
+      "conf_info": null,
+      "ind_info": {
+        "indemnity_trigger": "breach_by_partyB",
+        "payment_obligation": 10000
+      },
+      "lim_info": null
+    },
+    {
+      "id": "lim1",
+      "actor": "partyA",
+      "modality": "MAY",
+      "action": "limit",
+      "object": "liability",
+      "recipient": "partyB",
+      "trigger": "OCCURRENCE",
+      "deadline": {"DURATION": 0},
+      "exceptions": [],
+      "scope_defined_terms": [],
+      "evidence_list": [],
+      "conf_info": null,
+      "ind_info": null,
+      "lim_info": {
+        "limitation_cap": 50000
+      }
+    }
+  ],
+  "defs": []
+}

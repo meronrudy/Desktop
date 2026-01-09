@@ -1,0 +1,44 @@
+### Confidentiality Clause Rules
+
+# Scope for confidentiality obligations
+declaration scope Confidentiality:
+
+  # Context: the actor who must keep info confidential
+  context actor : party
+
+  # Context: what is confidential
+  context confidential_object : string
+
+  # Context: allowed disclosure triggers
+  context allowed_triggers : disclosure_trigger list
+
+  # Context: actual trigger of disclosure
+  context actual_trigger : disclosure_trigger option
+
+  # Context: time of disclosure
+  context disclosure_time : integer option
+
+  # Context: jurisdiction
+  context jurisdiction : string
+
+  # Declaration: obligation exists if actor is bound
+  declaration scope Obligation:
+    definition obligation_exists : boolean = true  # assuming present
+
+  # Declaration: breach if disclosed without trigger
+  declaration scope Breach:
+    definition breach : boolean under condition obligation_exists:
+      match disclosure_time with
+      | some _ ->
+          if jurisdiction = "GDPR_EU" then
+            not (actual_trigger in allowed_triggers)  # stricter: must be in allowed
+          else
+            not (actual_trigger in allowed_triggers)
+      | none -> false
+
+  # Declaration: outcome on breach
+  declaration scope Outcome:
+    definition remedy : remedies under condition breach:
+      InjunctiveRelief
+
+    definition amount : integer = 0  # no monetary, injunctive

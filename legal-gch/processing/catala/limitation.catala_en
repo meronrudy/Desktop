@@ -1,0 +1,24 @@
+### Limitation of Liability Clause Rules
+
+# Scope for limitation obligations
+declaration scope Limitation:
+
+  # Context: cap amount
+  context limitation_cap : integer
+
+  # Context: claimed damages
+  context claimed_damages : integer
+
+  # Context: jurisdiction
+  context jurisdiction : string
+
+  # Declaration: effective amount
+  declaration scope Outcome:
+    definition effective_amount : integer =
+      if claimed_damages > limitation_cap then
+        if jurisdiction = "CONTRACT_NY" then
+          limitation_cap  # reasonable limitation allowed
+        else
+          limitation_cap
+      else
+        claimed_damages

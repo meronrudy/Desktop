@@ -1,0 +1,30 @@
+# Dockerfile for the Legal AI Inference API
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies if needed (for Coq, Catala, etc.)
+RUN apt-get update && apt-get install -y \
+    opam \
+    coq \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python dependencies
+COPY requirements_api.txt .
+COPY neural_components/requirements.txt ./neural_components/
+RUN pip install --no-cache-dir -r requirements_api.txt -r neural_components/requirements.txt
+
+# Copy source code
+COPY api.py .
+COPY neural_components/ ./neural_components/
+COPY catala_code/ ./catala_code/
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV API_KEY=demo-api-key
+
+# Expose port
+EXPOSE 8000
+
+# Run the API
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]

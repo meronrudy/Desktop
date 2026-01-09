@@ -1,0 +1,19 @@
+{
+  "ir": {
+    "jurisdiction": "general",
+    "atoms": [],
+    "defs": []
+  },
+  "version": "1.0",
+  "ir_hash": "6d010132f21fc194503ef12441e74a9c2cb90264e91d520cbeeabc5a6175c060",
+  "theorem_name": "outcome_invariance_for_ir_6d010132",
+  "theorem_statement": "For any scenario s and any two renderings t1, t2 of the IR, the evaluated outcome is identical.",
+  "coq_theorem": "\nTheorem outcome_invariance_for_ir_6d010132 :\n  forall s t1 t2,\n    In t1 (renderer specific_ir) ->\n    In t2 (renderer specific_ir) ->\n    evaluate_opt (parser t1) s = evaluate_opt (parser t2) s.\n",
+  "proof_script": "\n  intros s t1 t2 H1 H2.\n  apply renderer_preserves_ir in H1.\n  apply renderer_preserves_ir in H2.\n  rewrite H1, H2.\n  reflexivity.\n",
+  "assumptions": [
+    "renderer_preserves_ir"
+  ],
+  "witnesses": [],
+  "generated_at": "2026-01-08T19:11:01.628825",
+  "coq_version": "8.17"
+}

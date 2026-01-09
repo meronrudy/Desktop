@@ -1,0 +1,73 @@
+DIGEST 26f3f2c9e12ecb891dce62c3729bebff
+Fkernel.core.definitions.NormativeIR
+R92:109 Coq.Strings.String <> <> lib
+R127:140 Coq.Lists.List <> <> lib
+R158:195 kernel.core.definitions.GenericClauses <> <> lib
+ind 229:236 <> mod_type
+constr 245:248 <> MUST
+constr 254:261 <> MUST_NOT
+constr 267:269 <> MAY
+constr 275:280 <> SHOULD
+ind 349:357 <> exception
+constr 366:389 <> UNLESS_PROHIBITED_BY_LAW
+ind 423:431 <> dead_type
+constr 440:447 <> DURATION
+constr 467:471 <> FIXED
+R458:460 Coq.Init.Datatypes <> nat ind
+binder 450:454 <> hours:7
+R481:486 Coq.Strings.String <> string ind
+binder 474:477 <> date:8
+def 522:529 <> evidence
+R541:544 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R554:554 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R535:540 Coq.Strings.String <> string ind
+R548:550 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R545:547 Coq.Init.Datatypes <> nat ind
+R551:553 Coq.Init.Datatypes <> nat ind
+constr 614:620 <> mk_atom
+rec 606:609 <> atom
+proj 626:627 <> id
+proj 641:645 <> actor
+proj 659:666 <> modality
+proj 682:687 <> action
+proj 701:706 <> object
+proj 720:728 <> recipient
+proj 742:748 <> trigger
+proj 765:772 <> deadline
+proj 789:798 <> exceptions
+proj 820:838 <> scope_defined_terms
+proj 857:869 <> evidence_list
+proj 890:898 <> conf_info
+proj 933:939 <> clauses
+R631:636 Coq.Strings.String <> string ind
+R649:654 Coq.Strings.String <> string ind
+R670:677 kernel.core.definitions.NormativeIR <> mod_type ind
+R691:696 Coq.Strings.String <> string ind
+R710:715 Coq.Strings.String <> string ind
+R732:737 Coq.Strings.String <> string ind
+R752:760 kernel.core.definitions.GenericClauses <> trig_type ind
+R776:784 kernel.core.definitions.NormativeIR <> dead_type ind
+R802:805 Coq.Init.Datatypes <> list ind
+R807:815 kernel.core.definitions.NormativeIR <> exception ind
+R842:845 Coq.Init.Datatypes <> list ind
+R847:852 Coq.Strings.String <> string ind
+R873:876 Coq.Init.Datatypes <> list ind
+R878:885 kernel.core.definitions.NormativeIR <> evidence def
+R902:907 Coq.Init.Datatypes <> option ind
+R909:928 kernel.core.definitions.GenericClauses <> confidentiality_info rec
+R943:946 Coq.Init.Datatypes <> list ind
+R948:958 kernel.core.definitions.GenericClauses <> clause_kind ind
+def 994:1004 <> definitions
+R1009:1012 Coq.Init.Datatypes <> list ind
+R1021:1023 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1015:1020 Coq.Strings.String <> string ind
+R1024:1029 Coq.Strings.String <> string ind
+constr 1101:1115 <> mk_normative_ir
+rec 1085:1096 <> normative_ir
+proj 1121:1125 <> atoms
+proj 1142:1145 <> defs
+proj 1164:1175 <> jurisdiction
+R1129:1132 Coq.Init.Datatypes <> list ind
+R1134:1137 kernel.core.definitions.NormativeIR <> atom rec
+R1149:1159 kernel.core.definitions.NormativeIR <> definitions def
+R1179:1195 kernel.core.definitions.GenericClauses <> jurisdiction_type ind

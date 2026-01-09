@@ -1,0 +1,124 @@
+name: CI · Build and Test Wheels (maturin)
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "v*.*.*" ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: wheels-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    name: Linux ${{ matrix.target }} · py${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [ x86_64, aarch64 ]
+        python-version: [ "3.10", "3.11", "3.12" ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build wheel with maturin (manylinux 2_28)
+        uses: PyO3/maturin-action@v1
+        with:
+          manylinux: "2_28"
+          target: ${{ matrix.target }}
+          args: --release -m rust/hmcs-core/Cargo.toml --out dist --python-source python -i ${{ matrix.python-version }}
+
+      - name: Install built wheel and run tests
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          pip install dist/*.whl
+          pytest -q
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-linux-${{ matrix.target }}-py${{ matrix.python-version }}
+          path: dist/*.whl
+          if-no-files-found: error
+          retention-days: 7
+
+  macos:
+    name: macOS ${{ matrix.os }} · py${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-13, macos-14 ]
+        python-version: [ "3.10", "3.11", "3.12" ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build wheel with maturin (native arch)
+        uses: PyO3/maturin-action@v1
+        with:
+          args: --release -m rust/hmcs-core/Cargo.toml --out dist --python-source python -i ${{ matrix.python-version }}
+
+      - name: Install built wheel and run tests
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          pip install dist/*.whl
+          pytest -q
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-macos-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: dist/*.whl
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    name: Release wheels
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [ linux, macos ]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download all wheel artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+
+      - name: Assemble dist folder
+        shell: bash
+        run: |
+          mkdir -p dist
+          find . -name "*.whl" -exec cp {} dist/ \;
+          ls -l dist
+
+      - name: Create GitHub Release with wheels
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.whl
+
+      - name: Publish to PyPI (optional)
+        if: ${{ secrets.PYPI_API_TOKEN != '' }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          packages-dir: dist

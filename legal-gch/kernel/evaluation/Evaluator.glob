@@ -1,0 +1,32 @@
+DIGEST cd440f50d81ca9efb2b9bae2ce60d1df
+Fkernel.evaluation.Evaluator
+R61:95 kernel.core.definitions.NormativeIR <> <> lib
+R113:142 kernel.core.basic.CourtOutcome <> <> lib
+R160:185 kernel.core.basic.Scenario <> <> lib
+R203:240 kernel.core.definitions.GenericClauses <> <> lib
+R258:275 Coq.Arith.PeanoNat <> <> lib
+R293:305 Coq.Arith.Min <> <> lib
+R323:335 Coq.Bool.Bool <> <> lib
+R353:366 Coq.Lists.List <> <> lib
+R384:401 Coq.Strings.String <> <> lib
+def 456:469 <> deadline_hours
+R476:484 kernel.core.definitions.NormativeIR <> dead_type ind
+binder 472:472 <> d:1
+R489:491 Coq.Init.Datatypes <> nat ind
+R504:504 kernel.evaluation.Evaluator <> d:1 var
+R515:522 kernel.core.definitions.NormativeIR <> DURATION constr
+R535:539 kernel.core.definitions.NormativeIR <> FIXED constr
+def 644:660 <> obligation_exists
+R667:670 kernel.core.definitions.NormativeIR <> atom rec
+binder 663:663 <> a:3
+R678:685 kernel.core.basic.Scenario <> scenario rec
+binder 674:674 <> s:4
+R690:693 Coq.Init.Datatypes <> bool ind
+R723:736 kernel.core.basic.Scenario <> awareness_time proj
+R720:720 kernel.evaluation.Evaluator <> s:4 var
+R709:716 kernel.core.definitions.NormativeIR <> modality proj
+R706:706 kernel.evaluation.Evaluator <> a:3 var
+R748:751 kernel.core.definitions.NormativeIR <> MUST constr
+R754:757 Coq.Init.Datatypes <> Some constr
+R764:767 Coq.Init.Datatypes <> true constr
+R781:785 Coq.Init.Datatypes <> false constr

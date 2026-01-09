@@ -1,0 +1,36 @@
+### Indemnity Clause Rules
+
+# Scope for indemnity obligations
+declaration scope Indemnity:
+
+  # Context: the indemnitor
+  context indemnitor : party
+
+  # Context: the indemnitee
+  context indemnitee : party
+
+  # Context: triggering event
+  context trigger_event : string
+
+  # Context: has trigger occurred
+  context trigger_occurred : boolean
+
+  # Context: payment amount
+  context payment_amount : integer
+
+  # Declaration: obligation exists
+  declaration scope Obligation:
+    definition obligation_exists : boolean = true
+
+  # Declaration: liability if trigger
+  declaration scope Liability:
+    definition liability : boolean under condition obligation_exists and trigger_occurred:
+      true
+
+  # Declaration: outcome
+  declaration scope Outcome:
+    definition remedy : remedies under condition liability:
+      Damages
+
+    definition amount : integer under condition liability:
+      payment_amount

@@ -1,0 +1,21 @@
+DIGEST 883956356269152baee657d9124d8736
+Fkernel.core.basic.Scenario
+R69:80 Coq.Init.Nat <> <> lib
+constr 157:167 <> mk_scenario
+rec 145:152 <> scenario
+proj 173:185 <> incident_time
+proj 220:233 <> awareness_time
+proj 284:300 <> notification_time
+proj 346:360 <> disclosure_time
+proj 418:437 <> breach_by_other_time
+proj 489:503 <> claimed_damages
+R189:191 Coq.Init.Datatypes <> nat ind
+R237:242 Coq.Init.Datatypes <> option ind
+R244:246 Coq.Init.Datatypes <> nat ind
+R304:309 Coq.Init.Datatypes <> option ind
+R311:313 Coq.Init.Datatypes <> nat ind
+R364:369 Coq.Init.Datatypes <> option ind
+R371:373 Coq.Init.Datatypes <> nat ind
+R441:446 Coq.Init.Datatypes <> option ind
+R448:450 Coq.Init.Datatypes <> nat ind
+R507:509 Coq.Init.Datatypes <> nat ind
